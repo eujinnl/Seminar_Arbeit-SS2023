@@ -1,0 +1,108 @@
+\section{Hauptteil} %% <= Titel einfügen
+
+Der folgende Teil beschreibt \LaTeX-Befehle und zeigt Beispiele. Desweiteren ist die Gliederung in Unterpunkte dargestellt.
+
+\subsection{Literatur und Verweise} %% <= Titel einfügen
+
+Sämtliche Zitiervorgaben (z. B. direkte und indirekte Zitate) sowie Vorgaben für die Auflistung der Quellen im Literaturverzeichnis (z. B. Sammelbände oder Monografien) finden Sie im Dokument „Zitieren nach Harvard“ der THI Hochschulbibliothek.
+
+Der Kurzverweis erfolgt im Text in eckigen Klammern [ ], hier ein Beispiel~\cite{Dreamer2025a}. Wird auf eine bestimmte Seite verwiesen, sieht das aus wie folgt \cite[S. 225]{Dreamer2025a}.
+
+Fußnoten\footnote{Das ist eine Fußnote} sollten vermieden werden, da sie den Lesefluss stören und mit der Layout-Linie am unteren Seitenrand kollidieren. 
+
+
+
+\subsection{How to equations} %% <= Titel einfügen
+You can write equations in line ${a^2 + b^2 = c^2}$. Or you can write an equation as paragraph
+\begin{equation}
+    \label{thisisasum}
+    \sum_{i=1}^K x_i = 10.
+\end{equation}
+Man kann eine Formel auch wie folgt in einer neuen Zeile \[x^2=4\] schreiben, dann allerdings ohne Nummerierung. 
+Sometimes you don't like equation numbers:
+\begin{equation*}
+    \sum_{i=1}^{K} x_i = 10.
+\end{equation*}
+However, a number is great because you can refere to it, i.e., Equation \eqref{thisisasum} shows a sum.
+It is also possible to write equation systems:
+\begin{align}
+    a + b & = 2 \\
+    b & = 3 \\
+    a &=?\label{whatisa}
+\end{align}
+The task is to solve equation \eqref{whatisa}.
+
+Auf Text sollte man innerhalb von Formeln verzichten und die Formel besser außerhalb erläutern. Wenn es sich absolut nicht vermeiden lässt, dann sollte Text innerhalb der Mathe-Umgebung
+\begin{verbatim}
+     \text{auf diese Art gesetzt werden}.
+\end{verbatim}
+Abstände innerhalb von Formeln lassen sich mit Befehlen wie
+\begin{verbatim}
+    \quad
+\end{verbatim}
+bestimmen, sie sollten aber auch nur dort eingesetzt werden, wo \LaTeX mit der Darstellung scheitert. Im Ausdruck  \eqref{quad} wird die Wirkung von \verb|\quad| und \verb|\text{abc}| verdeutlicht.
+\begin{equation}
+    \label{quad}
+    \forall x\in \{ z\in\mathbb{C} \,|\, z = a+ib,\,a\in\mathbb{R},\text{ und }b = 0\}:\quad x\in \mathbb{R}.
+\end{equation}
+
+
+It's all possible but you may have to look for it.
+A good start might be:
+\url{https://www.overleaf.com/learn/latex/Mathematical_expressions}.
+
+\subsection{How to tables}
+A table is as easy as everything else. Have a look at Table \ref{table}.
+\begin{table}[H]
+    \caption{this is a table}
+    \label{table}
+    \small
+    \centering
+    \setlength{\tabcolsep}{4.5pt}
+    \begin{tabular}{|c|c|c|}
+        \hline
+         & layer context & Affine  \\
+        \hline
+            a  & [t-2,t+2]     & ($5 \times 40)  \times 512$  \\
+            b  & \{t-2,t,t+2\} & ($3 \times 512) \times 512$  \\
+            c  & \{t-2,t,t+2\} & ($3 \times 512) \times 512$  \\
+            d  & \{t\}         & $512 \times 512$  \\
+            e  & \{t\}         & $512 \times 512$  \\
+            f  & [0,T) & N/A  \\
+            g & [0,T) & 1024 $\times$ 256  \\
+            h  & [0,T) & 256 $\times$ N \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsection{How to images}
+Images are also very easy. Have a look at Figure \ref{aimotionlogo}.
+The position of the image is computed, automatically.
+You can influence the image position but it's usually not required. 
+\begin{figure}[t]
+\centering
+	\includegraphics[width=15em]{thi_AImotion_logo.jpg}
+	\caption{This is our logo.}
+	\label{aimotionlogo}
+\end{figure}
+
+\subsubsection{Tiefe Gliederung}
+
+Es ist auch eine tiefere Gliederung in die 3. Ebene möglich. Tiefergehende Ebenen als Ebene 3 sind in Seminararbeiten nicht vorgesehen. Eine weitere Gliederungssystematik wäre in diesem Fall beispielsweise „Bullet-Points“ bzw. allgemein-gebräuchliche Aufzählungszeichen.
+
+\subsection{How to code}
+It is also easy to add code in your text.
+However, there is almost no reason to put code in a text....
+The perfect place for code is github (or the apendix).
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{caption={Insert code directly in your document}}
+\lstset{label={lst:code_direct}}
+\lstset{basicstyle=\footnotesize}
+\begin{lstlisting}
+from brg.datastructures import Mesh
+     
+mesh = Mesh.from_obj('faces.obj')
+mesh.draw()
+\end{lstlisting}
+
